@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de pago</title>
+    <link rel="stylesheet" href="Hojadepago.css">
+
+</head>
+<body>
+    <script src="Hojadepago.js"></script>
+    <div class="container">
+        <h1>Calculo de pagos a empleados</h1>
+        <form id="formReserva">
+            <label for="nombre">Nombre empleado:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="horasExtras">Horas extra realizadas en el mes</label>
+            <input type="number" id="horasExtras" name="horasExtras" min="1" max="20" required>
+
+            <label for="antiguedadEmpleado">Antigüedad del empleado (años):</label>
+            <input type="number" id="antiguedadEmpleado" name="antiguedadEmpleado" min="1" max="25" required>
+
+            <label for="salarioBase">Salario base:</label>
+            <input type="number" id="salarioBase" name="salarioBase" min="1" required>
+
+            <button type="button" onclick="calcularPago()">Calcular Pago</button>
+        </form>
+        <div id="resultados"></div>
+    </div>
+        
+    <script>
+        document.getElementById("horasExtras").addEventListener("input", function () {
+            const max = 20;
+            const min = 1;
+            let value = parseInt(this.value);
+            if (value > max) this.value = max;
+            else if (value < min) this.value = min;
+        });
+
+        document.getElementById("antiguedadEmpleado").addEventListener("input", function () {
+            const max = 25;
+            const min = 1;
+            let value = parseInt(this.value);
+            if (value > max) this.value = max;
+            else if (value < min) this.value = min;
+        });
+
+
+        </script>
+       
+</body>
+</html>
